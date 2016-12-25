@@ -1,25 +1,22 @@
-	<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #2aabd2;">
-	      <div class="container">
-	        <div class="navbar-header">
-	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-	            <span class="sr-only">Toggle navigation</span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	          <a class="navbar-brand" href="index.jsp">Halign Server</a>
-	        </div>
-	        <div id="navbar" class="navbar-collapse collapse">
-	          <ul class="nav navbar-nav">
-	            <li class="active"><a href="index.jsp">Home</a></li>
-	            <li><a target="_bank" href="http://lab.malab.cn/soft/halign/index.html">About</a></li>
-	          </ul>
-	          <ul class="nav navbar-nav navbar-right">
-	            <li data-toggle="modal" data-target="#myModal"><a href="#">Contact</a></li>
-	            <li><a target="_bank" href="http://bbs.malab.cn">malab.cn</a></li>
-	          </ul>
-	        </div><!--/.nav-collapse -->
-	      </div>
+	<nav class="navbar navbar-inverse navbar-fixed-top navbar-example">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="http://lab.malab.cn/soft/halign/index.html">HAlign</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="http://lab.malab.cn/soft/halign/index.html#">Home</a></li>
+					<li><a href="http://lab.malab.cn/soft/halign/index.html#single">For Single Core User</a></li>
+					<li><a href="http://lab.malab.cn/soft/halign/index.html#hadoop">For Hadoop User</a></li>
+					<li><a href="http://lab.malab.cn/soft/halign/index.html#cite">Contact and Citation</a></li>
+					<li class="active"><a href="index.jsp">Web Server(1)</a></li>
+					<li><a href="http://124.42.118.245:8080/Halign/">Web Server(2)</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a target="_bank" href="http://bbs.malab.cn">malab.cn</a></li>
+				</ul>
+			</div>
+		</div>
 	</nav>
     
     <!-- Modal -->

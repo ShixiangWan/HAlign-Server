@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:cache="http://www.springframework.org/schema/cache"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                    	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-                    http://www.springframework.org/schema/aop
-      				http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
                     http://www.springframework.org/schema/context
                     http://www.springframework.org/schema/context/spring-context-4.0.xsd
                     http://www.springframework.org/schema/mvc
-                    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
-                    http://www.springframework.org/schema/tx
-       				http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
-        			http://www.springframework.org/schema/cache
-        			http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
-        			http://www.springframework.org/schema/task
-    				http://www.springframework.org/schema/task/spring-task-4.0.xsd">
+                    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     <!-- 自动扫描Component -->
-    <context:component-scan base-package="com.malab.controller" />
+    <context:component-scan base-package="malab.controller" />
     <!-- 支持spring3.0新的mvc注解 -->
     <mvc:annotation-driven />
 
@@ -48,17 +38,5 @@
             </list>
         </property>
     </bean>
-
-    <!-- 配置SpringMVC拦截器 -->
-    <!-- <mvc:interceptors>
-        拦截所有springmvc的url
-		<bean class="com.test.interceptor.MyInterceptor"></bean>
-		<mvc:interceptor>
-			<mvc:mapping path="/user.do" />
-			<mvc:mapping path="/test/*" />
-			<mvc:exclude-mapping path="/user/login.ch"/>
-			<bean class="com.test.interceptor.MyInterceptor"></bean>
-		</mvc:interceptor>
-	</mvc:interceptors> -->
 
 </beans>

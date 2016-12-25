@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MavenDemo.iml" filepath="$PROJECT_DIR$/MavenDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HAlignWeb.iml" filepath="$PROJECT_DIR$/HAlignWeb.iml" />
     </modules>
   </component>
 </project>
