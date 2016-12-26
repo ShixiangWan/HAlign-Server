@@ -37,7 +37,7 @@ public class MSAController implements ServletContextAware {
                                          @RequestParam("paste")String paste, Model map){
         String root = this.servletContext.getRealPath("/");
         String time = Long.toString(new Date().getTime());
-        String jarFile = root+"data/MSA2.0.jar";
+        String jarFile = root+"data/HAlign2.1.jar";
         String inputFile = root+"data/input.fasta";
         String outputFile = root+"data/"+time+".fasta";
         try {
@@ -55,31 +55,24 @@ public class MSAController implements ServletContextAware {
                 return new ModelAndView("index");
             }
             /*algorithm*/
-            String alg = "";
-            if (algorithm.equals("0")) {
-                alg = "0"; //Suffix tree for DNA/RNA
-                map.addAttribute("alg", "Suffix tree for DNA/RNA");
-            } else if (algorithm.equals("1")) {
-                alg = "3"; //Trie tree for DNA/RNA
-                map.addAttribute("alg", "Trie tree for DNA/RNA");
-            } else if (algorithm.equals("2") && sequenceType.equals("DNA")) {
-                alg = "2"; //KBand for DNA/RNA
-                map.addAttribute("alg", "KBand for DNA/RNA");
+            if (algorithm.equals("2") && sequenceType.equals("DNA")) {
+                algorithm = "2"; //KBand for DNA/RNA
             } else if (algorithm.equals("2") && sequenceType.equals("Protein")) {
-                alg = "1"; //KBand for Protein
-                map.addAttribute("alg", "KBand for Protein");
+                algorithm = "1"; //KBand for Protein
             }
+            map.addAttribute("alg", algorithm);
             /*Hadoop or Standalone*/
             String command = "";
             if (mode.equals("hadoop")) {
-                command = "java -jar "+jarFile+" "+inputFile+" "+outputFile+" "+alg;
+                command = "java -jar "+jarFile+" -localMSA "+inputFile+" "+outputFile+" "+algorithm;
                 map.addAttribute("mode", "Hadoop cluster mode");
             } else if (mode.equals("standalone")){
-                command = "java -jar "+jarFile+" "+inputFile+" "+outputFile+" "+alg;
+                command = "java -jar "+jarFile+" -localMSA "+inputFile+" "+outputFile+" "+algorithm;
                 map.addAttribute("mode", "Stand-alone mode");
             }
             /*Run MSA*/
             long startRunTime = System.currentTimeMillis();
+            System.out.println(command);
             Process process = Runtime.getRuntime().exec(command);
             process.waitFor();
 
@@ -89,7 +82,7 @@ public class MSAController implements ServletContextAware {
             /*statistic file info*/
             FormatFileUtils fileUtils = new FormatFileUtils();
             fileUtils.statisticFile(inputFile);
-            System.out.println(inputFile);
+
             map.addAttribute("size", fileUtils.getFileSize());
             map.addAttribute("number", fileUtils.getAllNumber());
             map.addAttribute("max", fileUtils.getMaxLength());
@@ -116,30 +109,32 @@ public class MSAController implements ServletContextAware {
     * @function: view tree result
     * */
     @RequestMapping(value="tree")
-    public ModelAndView ViewTree (String time, Model map) throws InterruptedException, IOException {
+    public ModelAndView ViewTree (String time, String type, Model map) throws InterruptedException, IOException {
         String root = this.servletContext.getRealPath("/");
 
         /*Tree*/
         Process process;
         String command;
         String inputPath = root+"data/";
-        /*String inputFile = time+".fasta";
-        command = "hadoop jar "+inputPath+"HAlign2.1.jar -tree "+inputPath+" "+inputFile+" hdfs://localhost:9000/msa";
+        String inputFile = time+".fasta";
+        command = "java -jar "+inputPath+"HAlign2.1.jar -tree "+inputPath+inputFile+" "+inputPath+"tree/tree.tre";
+        System.out.println(command);
         process = Runtime.getRuntime().exec(command);
         process.waitFor();
-        new File(inputPath+"HPTree_OutPut").renameTo(new File(inputPath+"tree.tre"));*/
 
         /*Convert*/
-        String jarFile = inputPath + "tree/TreeGraph.jar";
-        String treFile = inputPath + "tree/tree.tre";
-        String xtgFile = inputPath + "tree/tree.xtg";
-        String svgFile = inputPath + "tree/tree.svg";
-        command = "java -jar "+jarFile+" -convert "+treFile+" -xtg "+xtgFile;
-        process = Runtime.getRuntime().exec(command);
-        process.waitFor();
-        command = "java -jar "+jarFile+" -image "+xtgFile+" "+svgFile;
-        process = Runtime.getRuntime().exec(command);
-        process.waitFor();
+//        String jarFile = inputPath + "tree/TreeGraph.jar";
+//        String treFile = inputPath + "tree/tree1.tre";
+//        String xtgFile = inputPath + "tree/tree.xtg";
+//        String svgFile = inputPath + "tree/tree.svg";
+//        command = "java -jar "+jarFile+" -convert "+treFile+" -xtg "+xtgFile;
+//        process = Runtime.getRuntime().exec(command);
+//        process.waitFor();
+//        command = "java -jar "+jarFile+" -image "+xtgFile+" "+svgFile;
+//        process = Runtime.getRuntime().exec(command);
+//        process.waitFor();
+        if (type.equals("1"))  map.addAttribute("name", "tree2");
+        else  map.addAttribute("name", "tree1");
 
         return new ModelAndView("tree");
     }
