@@ -1,1 +1,0 @@
-hadoop jar /mnt/apache-tomcat-9.0.0.M13/webapps/Halign/HAlign2.1.jar -tree /mnt/apache-tomcat-9.0.0.M13/webapps/Halign/ out.fasta hdfs://localhost:9000/msa
