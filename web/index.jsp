@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HAlign Server</title>
+    <title>HAlign</title>
     <!-- bootstrap -->
     <%--<link href="css/bootstrap-theme.min.css" rel="stylesheet">--%>
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -130,7 +130,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="alg" id="alg1" value="1">
+                                    <input type="radio" name="alg" id="alg1" value="3">
                                     Trie tree (for DNA/RNA)
                                 </label>
                             </div>
@@ -194,7 +194,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </tr>
                                 <tr>
                                     <td>${requestScope.time}</td>
-                                    <td>${requestScope.alg}</td>
+                                    <c:if test="${requestScope.alg=='0'}"><td>Suffix tree for DNA/RNA</td></c:if>
+                                    <c:if test="${requestScope.alg=='1'}"><td>KBand for Protein</td></c:if>
+                                    <c:if test="${requestScope.alg=='2'}"><td>KBand for DNA/RNA</td></c:if>
+                                    <c:if test="${requestScope.alg=='3'}"><td>Trie tree for DNA/RNA</td></c:if>
                                     <td>${requestScope.mode}</td>
                                     <td>${requestScope.runtime}</td>
                                     <td style="color: green">success</td>
@@ -226,7 +229,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     MSA Visualization: <strong><a target="_blank" href="view.do?time=${requestScope.time}">View</a></strong>
                                 </li>
                                 <li>
-                                    Phylogenetic Tree visualization: <strong><a target="_blank" href="tree.do?time=${requestScope.time}">Generate</a></strong>
+                                    Phylogenetic Tree visualization: <strong><a target="_blank" href="tree.do?time=${requestScope.time}&type=${requestScope.alg}">Generate</a></strong>
                                 </li>
                             </ul>
                         </c:if>

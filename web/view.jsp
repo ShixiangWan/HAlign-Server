@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HAlign Server</title>
+    <title>HAlign</title>
     <!-- bootstrap -->
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -43,6 +43,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <div id="msa2">Loading YOUR INPUT...</div>
           </p>
         </div>
+      <!-- 底部栏 -->
+      <hr style="width:100%;margin:3px;"/>
+      <p style="text-align:center;" class="text-muted">Bioinformatics Laboratory - Tianjin University @ <a target="_blank" href="http://lab.malab.cn/~shixiang/">Shixiang Wan</a></p>
     </div> <!-- /container -->
 
     <script type="text/javascript">
