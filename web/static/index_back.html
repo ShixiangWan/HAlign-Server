@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HAlign</title>
+    <!-- bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            padding-top: 80px;
+        }
+        h2 {
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<!-- Nav tabs -->
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-example">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">HAlign</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#single">For Single Core User</a></li>
+                <li><a href="#hadoop">For Hadoop User</a></li>
+                <li><a href="#cite">Contact and Citation</a></li>
+                <li><a href="http://cluster.malab.cn/Halign">Web Server(1)</a></li>
+                <li><a href="http://124.42.118.245:8080/Halign/">Web Server(2)</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a target="_bank" href="http://bbs.malab.cn">malab.cn</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 navbar-left navbar-example">
+            <div class="list-group"  style="position: fixed;">
+                <a href="#" class="list-group-item text-info">Home</a>
+                <a href="#single" class="list-group-item">For Single Core User</a>
+                <a href="#hadoop" class="list-group-item">For Hadoop User</a>
+                <a href="#cite" class="list-group-item">Contact and Citation</a>
+                <a class="list-group-item" href="http://cluster.malab.cn/Halign">Web Server(1)</a>
+                <a class="list-group-item" href="http://cluster.malab.cn/Halign">Web Server(2)</a>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div id="home">
+                <img src="img/top.jpg" width="100%" height="120">
+                <div class="page-header">
+                    <h2>HAlign</h2>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        HAlign is a package of multi-platform Java software tools, which aimed at large scale multiple similar DNA/RNA sequence alignment. HAlign employs center star multiple sequence alignment strategy. The input file should be a fasta DNA or RNA file. You can use this tool in any OS with JVM.
+                        <HR>
+                        <H3>Datasets</H3>
+                        <Strong>mitochondrial genomes</Strong><br>
+                        <ul>
+                            <li>Ref: Tanaka M., et al. (2004) Mitochondrial genome variation in eastern Asia and the peopling of Japan. Genome Res,14(10a), 1832-1850</li>
+                            <li>Dowload (zipped file): <a href="./data/mt1x.zip">1x</a> (219KB)  &nbsp;&nbsp;&nbsp;<a href="./data/mt20x.zip">20x</a> (4.27MB)&nbsp;&nbsp;&nbsp; <a href="./data/mt50x.zip">50x</a> (10.666MB)&nbsp;&nbsp;&nbsp;  <a href="./data/mt100x.zip">100x</a> (21.325MB)</li>
+                        </ul>
+                        <Strong>16s rRNA</Strong><br>
+                        <ul>
+                            <li>Ref: DeSantis, T. Z., et al.(2006) NAST: a multiple sequence alignment server for comparative analysis of 16S rRNA genes. Nucleic Acids Res, 34, W394-399</li>
+                            <li>Download (zipped file): <a href ="./data/16ssmall.zip">small</a> (21.864MB)&nbsp;&nbsp;&nbsp; <a href="./data/16sbig.zip">big</a> (197.224MB)</li>
+                        </ul>
+                        <HR>
+                        <H3>Related Tools</H3>
+                        SP is a jar file, which can be used to compute the average value of sum-of-pair score for the alignment result.
+                        <ul>
+                            <li>jar: <a href="./software/sp.jar">download</a></li>
+                            <li><a href="https://github.com/maoyaozong/SP" target="_blank">source code</a></li>
+                            <li>Usage: java -jar sp.jar  fasta_file   [parameter.txt]   [-s]</li>
+                            where fasta_file is the alignment result, and parameter.txt stores the parameters(it can be omitted), and -s is the resample result(If there are too many sequences, -s can save the running time).
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <p id="single" style="height: 32px;"></p>
+                <div class="page-header"><H2>For Single Core User</H2></div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div align=center><IMG src="img/1.jpg" style="height: 250px;"></div>
+                        The software tools should be run in any OS with JVM (version 1.6 or higher). The Trie Tree Version runs quickly than the K-Band Version. However, the K-Band Version considers the Affine Gap Penalty while the Trie Tree Version didn't.
+                        <HR>
+                        <H3>Trie Tree Version</H3>
+                        <H4>Download</H4>
+                        <ul>
+                            <li><a href="./software/Improvedcenterstar.jar">jar</a></li>
+                            <li><a href="./software/src.zip">source</a> This is a zipped file. Please unzip it first. This program was developed by Jbuilder. You can view the source codes in src file.</li>
+                            <li><a href="./software/test.txt">test data</a></li>
+                        </ul>
+                        <H4>Manual</H4>
+                        The input file should be a fasta file with DNA/RNA sequences. Put it in the same folder/path with the jar file.Please run<br>
+                        <ul>
+                            # java -jar improvedcenterstar.jar test.txt 1
+                        </ul>
+                        Here 1 can be omitted or replaced by 0. If you want to align the sequences with high similarity, please use 1(recommended); if the sequences are low similar, you can choose 0 to use common center star method for multiple sequence alignment.
+
+                        After that, the aligned sequences will be saved in a new created file ‘output.txt’.
+                        <HR>
+
+                        <H3>K-Band Version</H3>
+                        <H4>Download</H4>
+                        <ul>
+                            <li><a href="./software/MSA.zip">jar</a> This is a zipped file. Please unzip it first. It includes jar file, parameter file and a test input file.</li>
+                            <li><a href="./software/code.zip">source</a> This is a zipped file. Please unzip it first. This program was developed by Jbuilder. You can view the source codes in src file.</li>
+                        </ul>
+
+                        <H4>Manual</H4>
+                        <ul>
+                            # java -jar MSA.jar inputfilename outputfilename
+                        </ul>
+                        If you don't type inputfilename and outputfilename, the default files are input.txt and output.txt.
+                    </div>
+                </div>
+
+
+            <p id="hadoop" style="height: 32px;"></p>
+                <div class="page-header"><H2>For Hadoop User</H2></div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div align=center><IMG src="img/2.jpg"></div>
+                        <hr>
+                        <H3>Download</H3>
+                        <Strong>Version 2.0</strong>. The newest and strongest version, which integrates 5 kinds of algorithms (suffix tree, trie tree, Kband for affine gap penalty,
+                        Kband for BLOSUM62 matrix and similarity matrix), supports DNA/RNA/Protein. More importantly, this version can help your file run on single Java environment and hadoop clusters at the same time.
+                        <ul>
+                            <li>codes: <a href="https://github.com/ShixiangWan/HAlign2.0" target="_blank">github</a></li>
+                            <li>jar: <a href="./software/MSA2.0.jar">download</a></li>
+                        </ul>
+                        <Strong>Version 1.1</strong>. This version can deal with the sequences with low similarity, but works a little slow.
+                        <ul>
+                            <li>codes: <a href="https://github.com/maoyaozong/MSA1.1" target="_blank">github</a></li>
+                            <li>jar: <a href="./software/MSA1.1.jar">download</a></li>
+                        </ul>
+                        <Strong>Version 1.0</strong>. This version can only deal with the sequences with high similarity, but works very quickly.
+                        <ul>
+                            <li>codes: <a href="https://github.com/maoyaozong/MSA1.0" target="_blank">github</a></li>
+                            <li>jar: <a href="./software/MSA1.0.jar">download</a></li>
+                        </ul>
+
+                        <hr>
+                        <H3>Manual</H3>
+                        <Strong>Version 2.0</strong>.</br></br>
+                        1. if you are a single Java user,  </br>
+                        the command is: <strong>java -jar MSA2.0.jar input_file output_file algorithm_type</strong></br>
+                        ( example: java -jar MSA2.0.jar /home/user/input.txt /home/user/output.txt 0 )
+                        <ul>
+                            <li><Strong>input_file:</Strong> String: input sequence file on local file system.</li>
+                            <li><Strong>output_file:</Strong> String: final aligned sequence file on local file system.</li>
+                            <li><Strong>algorithm_type:</Strong> Int: type of alignment algorithm. 0 is suffix tree (for DNA/RNA), which is recommended; 1 is Kband for BLOSUM62 matrix (for Protein); 2 is Kband for affine gap penalty (for DNA/RNA);
+                                3 is trie tree (for DNA/RNA); 4 is similarity matrix (for DNA/RNA), which is the slowest among them. Obviously, only 1 supports protein file; 0, 2, 3 and 4 support DNA/RNA.
+                            </li>
+                        </ul>
+                        2. if you are a hadoop clusters user, </br>
+                        the command is: <strong>hadoop jar MSA2.0.jar input_file output_file dfs_path algorithm_type</strong></br>
+                        ( example: hadoop jar MSA2.0.jar /home/user/input.txt /home/user/output.txt hdfs://hadoop-master:9000/msa 0 )
+                        <ul>
+                            <li><Strong>input_file / output_file / algorithm_type:</Strong> same as above.</li>
+                            <li><Strong>dfs_path:</Strong> String: HDFS path which saving temporary distributed files</li>
+                        </ul>
+
+                        <Strong>Version 1.1</strong>/<Strong>Version 1.0</strong>.
+                        It runs in Linux OS with Hadoop platform.<br><br>
+                        <table class="table-hover table-condensed table-bordered">
+                            <tr><td>1.start hadoop </td><td> # hadoop start-all.sh </td></tr>
+                            <tr><td>2.leave the safe mode</td><td># hadoop dfsamdin -safemode leave </td></tr>
+                            <tr><td>3. start the MSA program</td><td># hadoop jar MSA1.<span class="alert-warning">X</span>.jar MSA_console <strong>filename local_path dfs_path</strong> </td></tr>
+                        </table>
+                        <ul>
+                            <li><strong>filename</strong> is the input file name, which should be a fasta DNA/RNA file. </li>
+                            <li><strong>local_path</strong> is the local file path, where would store the input file. </li>
+                            <li><strong>dfs_path</strong> is the path in Hadoop file system. </li>
+                        </ul>
+                        <br>
+                        The output files include
+                        <ul>
+                            <li><Strong>dfs_path/MSAinput/inputKV</Strong> The file stores the Key Value pairs.</li>
+                            <li><Strong>dfs_path/out/part-r-00000</Strong> The file stores sequence names, updated sequences, and the updated center star sequence.</li>
+                            <li><Strong>dfs_path/seqi/seqi</Strong> The input file for the second Map function.</li>
+                            <li><Strong>dfs_path/theFinaloutput</Strong> The final aligned sequence file</li>
+                            <li><font color=blue><Strong>local_path/seqi/FinalOutput</Strong> The final aligned sequence file in local file system</font></li>
+                        </ul>
+
+                        <hr>
+                        <H3>Notice</H3>
+                        Please confirm that the input file is a DNA or RNA fasta file. Make sure Hadoop can work in your cluster.
+                    </div>
+                </div>
+
+            <p id="cite" style="height: 32px;"></p>
+            <div class="page-header"><H2>Contact and Citation</H2></div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <H3>Citation</H3>
+                    Quan Zou, Qinghua Hu, Maozu Guo, Guohua Wang. HAlign: Fast Multiple Similar DNA/RNA Sequence Alignment Based on the Centre Star Strategy. Bioinformatics. 2015,31(15): 2475-2481. (<a href="http://bioinformatics.oxfordjournals.org/cgi/reprint/btv177?ijkey=CbHd7aTXctZ4Ofv&keytype=ref " target="_blank">link</a>)<br><br>
+                    Quan Zou, Xubin Li, Wenrui Jiang, Ziyu Lin, Guilin Li, Ke Chen. Survey of MapReduce Frame Operation in Bioinformatics. Briefings in Bioinformatics. 2014,15(4): 637-647. (<a href="http://bib.oxfordjournals.org/content/15/4/637.full" target="_blank">link</a>)
+                    <hr>
+                    <H3>Contact</H3>
+                    The software tools are developed and maintained by <a href="http://lab.malab.cn/~zq/en/" target="_blank">Dr. Quan Zou</a>. If you find any bug, welcome to contact me and report.
+                    <hr>
+                    <H3>Acknowledgement</H3>
+                    We thank to Mr. <a href="http://datamining.xmu.edu.cn/~maoyaozong/2.html" target="_blank">Yaozong Mao</a>, who helped to develop the Hadoop version of our software tool. We thank to Mr. <a href="http://lab.malab.cn/~shixiang/" target="_blank">Shixiang Wan</a>, who helped to developed the web server in Qingyun Hadoop System. The work was supported by the Natural Science Foundation of China (No.61370010).
+                    <hr>
+                    <H3>Related Work</H3>
+                    <ul>
+                        <li><a href="http://mafft.cbrc.jp/alignment/software/" target="_blank">MAFFT</a></li>
+                        <li><a href="http://msa.sbc.su.se/cgi-bin/msa.cgi" target="_blank">KAlign</a></li>
+                        <li><a href="https://github.com/smirarab/pasta" target="_blank">PASTA</a></li>
+                        <li>HAlign (<a href="#">Chinese version</a>)</li>
+                        <li><a href="http://lab.malab.cn/soft/HPtree/index.html" target="_blank">HPTree</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div data-spy="scroll" data-target="#navbar-example">
+        <h4 id="home">iOS</h4>
+    </div> -->
+</div>
+
+
+</body>
+</html>

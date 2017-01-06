@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HAlign</title>
+    <!-- bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            padding-top: 80px;
+        }
+
+        h2 {
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<!-- Nav tabs -->
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-example">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">HAlign</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="index.html#doc">Document</a></li>
+                <li><a href="tutor.html">Tutorial</a></li>
+                <li><a href="index.html#server">Server</a></li>
+                <li><a href="index.html#cite">Citation</a></li>
+                <li><a href="index.html#contact">Contact us</a></li>
+            </ul>
+            <!--<ul class="nav navbar-nav navbar-right">-->
+            <!--<li><a target="_bank" href="http://bbs.malab.cn">malab.cn</a></li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 navbar-left navbar-example">
+            <div class="list-group" style="position: fixed; width: 140px;">
+                <a href="index.html" class="list-group-item text-info">Home</a>
+                <a href="index.html#doc" class="list-group-item">Document</a>
+                <a href="tutor.html" class="list-group-item">Tutorial</a>
+                <a href="index.html#server" class="list-group-item">Server</a>
+                <a href="index.html#cite" class="list-group-item">Citation</a>
+                <a href="index.html#contact" class="list-group-item">Contact us</a>
+                <!--<a href="http://cluster.malab.cn/Halign" class="list-group-item" >Web Server(1)</a>
+                <a href="http://cluster.malab.cn/Halign" class="list-group-item">Web Server(2)</a>-->
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div id="home">
+                <img src="img/top.jpg" width="100%" height="120">
+                <div class="page-header">
+                    <h2>Tutorial of HAlign Server</h2>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        To facilitate the use of HAlign, a user-friendly web server for HAlign has been established at
+                        <a target="_blank" href="http://cluster.malab.cn/Halign/">http://cluster.malab.cn/Halign/</a>.
+                        Here, a step-by-step guide on how to use the HAlign web server is given below.
+
+                        <h3>Step 1:</h3>
+                        <p>After you click the link as shown in above, you will see the HAlign web server (Fig. 1).</p>
+                        <img src="./img/step1.jpg" class="img-thumbnail" style="width: 100%;">
+                        <p style="text-align: center"><u>Fig. 1</u></p>
+                        <p style="height: 1px;"></p>
+                        As you can see, you can start your a series of multiple sequences alignment experiments now.
+                        You have two different ways to submit your fasta data, paste or upload directly. By the way,
+                        do not worry there are so many redundant line breaks, we will deal with it automatically.
+                        Certainly we will do not consider about the illegal characters in your fasta sequences, but we
+                        will feedback this to you kindly.
+
+                        <p style="height: 1px;"></p>
+                        Next, after ensuring about your fasta sequences, you need to choose the type of your fasta
+                        sequences, DNA/RNA or Protein. When you finish it, we will limit the legal algorithms you
+                        can choose, so you just feel free to decide a proper algorithm.
+
+                        <p style="height: 1px;"></p>
+                        Lastly, you should choose a proper running mode: Hadoop cluster Mode or Stand-alone Mode.
+                        Easily, just choose the hadoop cluster mode, unless you want to do some comparable experiments.
+
+
+                        <h3>Step 2:</h3>
+                        <p>After you submit your experiment task successfully, wait a second,
+                            you will see the results (Fig. 2).</p>
+                        <img src="./img/step2.jpg" class="img-thumbnail" style="width: 100%;">
+                        <p style="text-align: center"><u>Fig. 2</u></p>
+                        <p style="height: 1px;"></p>
+                        The results includes a series of information: file basic information, sequences information,
+                        multiple sequences alignment information and phylogenetic tree information. Based on your
+                        Job ID, you can download you alignment result file (save download link:
+                        http://cluster.malab.cn/download.do?time=your Job ID), we will save this result file a month
+                        for you kindly.
+
+                        <h3>Step 3:</h3>
+                        <p>Now, you can visit your multiple sequences alignment results visualization by click
+                            "View" link in Fig. 2.</p>
+                        <img src="./img/step3.jpg" class="img-thumbnail" style="width: 100%;">
+                        <p style="text-align: center"><u>Fig. 3</u></p>
+                        <p style="height: 1px;"></p>
+                        For more convenience comparison between the original sequences and the aligned sequences,
+                        we show both of them simultaneously. You can try to drag over one sequence and compare it with
+                        other sequences, observe the spaces in results, or maybe you will discover some new knowledge
+                        from the original sequences.
+
+                        <h3>Step 4:</h3>
+                        <p>Now, you can visit your phylogenetic tree visualization by click "Generate" link in Fig. 2.</p>
+                        <img src="./img/step4.jpg" class="img-thumbnail" style="width: 100%;">
+                        <p style="text-align: center"><u>Fig. 4</u></p>
+                        <p style="height: 1px;"></p>
+                        As shown in Fig. 4, phylogenetic tree result is free to download. Because this procedure needs
+                        some time cost, our program calculate it respectively. For your convenience, we show tree.png
+                        meanwhile.
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr style="width:100%;margin:3px;"/>
+    <p style="text-align:center;" class="text-muted">Copyright@2016 by Bioinformatics Laboratory, Tianjin
+        University.</p>
+</div>
+
+
+</body>
+</html>
