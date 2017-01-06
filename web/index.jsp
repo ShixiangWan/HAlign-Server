@@ -100,7 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             Step 1.  Paste fasta DNA/RNA/Protein sequences:
                             <textarea name="paste" id="paste" class="form-control" rows="3" id="textArea" style="height:100px;"></textarea>
                             Example: <strong><a onclick="pasteDNA()">DNA</a>; <a onclick="pasteProtein()">Protein</a></strong>
-                            <br/>OR UPLOAD YOUR FILE BELOW (<20MB)
+                            <br/>OR UPLOAD YOUR FILE BELOW
                             <input type="file" name="file" onchange="check(this)">
                             <p class="warn" id="warn">${requestScope.error}</p>
                             <p class="note" id="note"></p>
