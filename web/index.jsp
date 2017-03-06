@@ -143,16 +143,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <p style="height:1px;"></p>
 
                             Step4. Choose running mode:
+                            <div class="radio" id="spark_mode">
+                                <label>
+                                    <input type="radio" name="mode" id="mode0" value="spark" checked>
+                                    Spark cluster mode (for large file)
+                                </label>
+                            </div>
                             <div class="radio" id="hadoop_mode">
                                 <label>
-                                    <input type="radio" name="mode" id="mode1" value="hadoop" onclick="check_status()" checked>
-                                    Hadoop cluster Mode (for large file)
+                                    <input type="radio" name="mode" id="mode1" value="hadoop">
+                                    Hadoop cluster mode (for large file)
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="mode" id="mode2" value="standalone" onclick="change_start_hadoop(0)">
-                                    Stand-alone Mode (for small file)
+                                    <input type="radio" name="mode" id="mode2" value="standalone">
+                                    Stand-alone mode (for small file)
                                 </label>
                             </div>
                             <p style="height:1px;"></p>

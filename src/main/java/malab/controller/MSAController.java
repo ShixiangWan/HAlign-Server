@@ -63,12 +63,19 @@ public class MSAController implements ServletContextAware {
             map.addAttribute("alg", algorithm);
             /*Hadoop or Standalone*/
             String command = "";
-            if (mode.equals("hadoop")) {
-                command = "java -jar "+jarFile+" -localMSA "+inputFile+" "+outputFile+" "+algorithm;
-                map.addAttribute("mode", "Hadoop cluster mode");
-            } else if (mode.equals("standalone")){
-                command = "java -jar "+jarFile+" -localMSA "+inputFile+" "+outputFile+" "+algorithm;
-                map.addAttribute("mode", "Stand-alone mode");
+            switch (mode) {
+                case "spark":
+                    command = "java -jar " + jarFile + " -localMSA " + inputFile + " " + outputFile + " " + algorithm;
+                    map.addAttribute("mode", "Spark cluster mode");
+                    break;
+                case "hadoop":
+                    command = "java -jar " + jarFile + " -localMSA " + inputFile + " " + outputFile + " " + algorithm;
+                    map.addAttribute("mode", "Hadoop cluster mode");
+                    break;
+                case "standalone":
+                    command = "java -jar " + jarFile + " -localMSA " + inputFile + " " + outputFile + " " + algorithm;
+                    map.addAttribute("mode", "Stand-alone mode");
+                    break;
             }
             /*Run MSA*/
             long startRunTime = System.currentTimeMillis();
